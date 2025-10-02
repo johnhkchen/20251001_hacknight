@@ -5,7 +5,14 @@ export default defineConfig({
   integrations: [tailwind()],
   vite: {
     server: {
-      allowedHosts: ['pipe.b28.dev']
+      allowedHosts: ['pipe.b28.dev'],
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3002',
+          changeOrigin: true,
+          rewrite: (path) => path
+        }
+      }
     }
   },
   server: {

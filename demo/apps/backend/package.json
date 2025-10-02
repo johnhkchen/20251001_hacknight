@@ -6,7 +6,11 @@
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "hono": "^4.7.10"
+    "@hono/node-server": "^1.19.5",
+    "hono": "^4.7.10",
+    "openai": "^4.104.0",
+    "opik": "^1.8.61",
+    "opik-openai": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
