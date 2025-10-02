@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "turbo": "^2.5.8"
-  }
+  "name": "monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
 }

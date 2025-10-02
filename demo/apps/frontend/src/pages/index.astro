@@ -1,0 +1,21 @@
+---
+const response = await fetch('http://localhost:3001/api');
+const data = await response.json();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Monorepo Demo</title>
+  </head>
+  <body>
+    <h1>Welcome to the Monorepo!</h1>
+    <p>Frontend: Astro</p>
+    <p>Backend: Hono</p>
+    <div>
+      <h2>API Response:</h2>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  </body>
+</html>
