@@ -1,21 +1,124 @@
 ---
-const response = await fetch('http://localhost:3001/api');
-const data = await response.json();
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import RecipeCard from '../components/RecipeCard.astro';
+
+const featuredRecipes = [
+  {
+    id: 1,
+    title: "Middle Eastern Grilled Meat Sandwich",
+    cuisine: "Turkish",
+    time: "45 min",
+    servings: "2",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_3761-7StZ4LzJUB9N7t27thDrXvZvkUHv8T.jpeg",
+  },
+  {
+    id: 2,
+    title: "Mediterranean Flatbread",
+    cuisine: "Mediterranean",
+    time: "30 min",
+    servings: "4",
+    image: "/mediterranean-flatbread-with-herbs.jpg",
+  },
+  {
+    id: 3,
+    title: "Spiced Lamb Kebabs",
+    cuisine: "Middle Eastern",
+    time: "60 min",
+    servings: "4",
+    image: "/grilled-lamb-kebabs-with-vegetables.jpg",
+  },
+  {
+    id: 4,
+    title: "Fresh Garden Salad",
+    cuisine: "International",
+    time: "15 min",
+    servings: "4",
+    image: "/fresh-colorful-garden-salad.jpg",
+  },
+  {
+    id: 5,
+    title: "Homemade Pita Bread",
+    cuisine: "Middle Eastern",
+    time: "90 min",
+    servings: "8",
+    image: "/fresh-pita-bread-stack.jpg",
+  },
+  {
+    id: 6,
+    title: "Grilled Vegetable Platter",
+    cuisine: "Mediterranean",
+    time: "35 min",
+    servings: "6",
+    image: "/colorful-grilled-vegetables-platter.jpg",
+  },
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Monorepo Demo</title>
-  </head>
-  <body>
-    <h1>Welcome to the Monorepo!</h1>
-    <p>Frontend: Astro</p>
-    <p>Backend: Hono</p>
-    <div>
-      <h2>API Response:</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
-  </body>
-</html>
+<Layout title="The Cookbook - Discover Authentic International Recipes">
+  <div class="min-h-screen">
+    <Header />
+
+    <!-- Hero Section -->
+    <section class="bg-secondary/30 py-20 md:py-32">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
+            Discover Authentic International Recipes
+          </h1>
+          <p class="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
+            Learn to cook delicious dishes from around the world with our carefully curated collection of traditional
+            recipes and modern techniques.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Browse Recipes
+            </button>
+            <button class="px-6 py-3 border border-border bg-card text-foreground rounded-lg hover:bg-secondary transition-colors">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Recipes Grid -->
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">Featured Recipes</h2>
+          <p class="text-lg text-muted-foreground max-w-2xl">
+            Explore our handpicked selection of recipes that celebrate flavors from around the world.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredRecipes.map((recipe) => (
+            <RecipeCard {...recipe} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary text-primary-foreground py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Start Your Culinary Journey Today</h2>
+          <p class="text-lg mb-8 opacity-90 leading-relaxed">
+            Join thousands of home cooks learning to create authentic dishes from around the world.
+          </p>
+          <button class="px-6 py-3 bg-background text-foreground rounded-lg hover:bg-background/90 transition-colors">
+            Explore All Recipes
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</Layout>

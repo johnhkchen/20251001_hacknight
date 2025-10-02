@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { id: '1' } },
+    { params: { id: '2' } },
+    { params: { id: '3' } },
+    { params: { id: '4' } },
+    { params: { id: '5' } },
+    { params: { id: '6' } },
+  ];
+}
+
+const { id } = Astro.params;
+---
+
+<Layout title="Middle Eastern Grilled Meat Sandwich - The Cookbook">
+  <div class="min-h-screen">
+    <Header />
+
+    <!-- Recipe Content -->
+    <div class="container mx-auto px-4 py-8 md:py-12">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Recipes
+      </a>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <!-- Recipe Image -->
+        <div>
+          <div class="aspect-[4/3] rounded-lg overflow-hidden mb-6">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_3761-7StZ4LzJUB9N7t27thDrXvZvkUHv8T.jpeg"
+              alt="Middle Eastern Grilled Meat Sandwich"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="aspect-square rounded-lg overflow-hidden">
+              <img src="/flatbread-dough-preparation.jpg" alt="Step 1" class="w-full h-full object-cover" />
+            </div>
+            <div class="aspect-square rounded-lg overflow-hidden">
+              <img src="/grilling-meat-on-skewers.jpg" alt="Step 2" class="w-full h-full object-cover" />
+            </div>
+            <div class="aspect-square rounded-lg overflow-hidden">
+              <img src="/assembled-sandwich-with-vegetables.jpg" alt="Step 3" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Recipe Info -->
+        <div>
+          <div class="mb-4">
+            <span class="inline-block px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">Turkish Cuisine</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Middle Eastern Grilled Meat Sandwich
+          </h1>
+          <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
+            A delicious Turkish-style sandwich featuring tender grilled meat, fresh vegetables, and aromatic spices
+            wrapped in homemade flatbread. Perfect for a hearty lunch or dinner.
+          </p>
+
+          <div class="flex flex-wrap gap-6 mb-8">
+            <div class="flex items-center gap-2">
+              <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div>
+                <div class="text-sm text-muted-foreground">Prep Time</div>
+                <div class="font-semibold text-foreground">45 min</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <div>
+                <div class="text-sm text-muted-foreground">Servings</div>
+                <div class="font-semibold text-foreground">2 people</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <div>
+                <div class="text-sm text-muted-foreground">Difficulty</div>
+                <div class="font-semibold text-foreground">Intermediate</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+            Start Cooking
+          </button>
+        </div>
+      </div>
+
+      <!-- Ingredients & Instructions -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-1">
+          <div class="border border-border rounded-lg p-6 bg-card">
+            <h2 class="text-2xl font-bold text-foreground mb-6">Ingredients</h2>
+            <ul class="space-y-3 text-foreground">
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>500g ground lamb or beef</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>2 flatbreads or pita</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>1 onion, finely chopped</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>2 tomatoes, sliced</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>1 cucumber, sliced</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>Fresh lettuce</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>2 cloves garlic, minced</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1">•</span>
+                <span>Spices: cumin, paprika, salt, pepper</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Instructions</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">1</div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">Prepare the meat</h3>
+                <p class="text-muted-foreground">Mix ground meat with minced garlic, chopped onion, and spices. Form into kebab shapes or patties.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">2</div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">Grill the meat</h3>
+                <p class="text-muted-foreground">Grill over medium-high heat for 10-12 minutes, turning occasionally until cooked through and charred.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">3</div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">Warm the bread</h3>
+                <p class="text-muted-foreground">Lightly toast the flatbread or pita on the grill for 1-2 minutes per side.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">4</div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-2">Assemble</h3>
+                <p class="text-muted-foreground">Place grilled meat on flatbread, top with fresh vegetables, and wrap. Serve immediately with your favorite sauce.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</Layout>
